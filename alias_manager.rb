@@ -37,7 +37,10 @@ def take_name(name)
 			#new_name at that index # now equal this new # 
 			#Equals the vowel list at index of the next #
 			new_name[index] = vowel_list[next_vowel_index]
-		
+		end	
+		if consonant_list.include?(new_name[index])
+			next_consonant_index = consonant_list.index(new_name[index]).next
+			new_name[index] = consonant_list[next_consonant_index]
 		end
 		index += 1
 	end
