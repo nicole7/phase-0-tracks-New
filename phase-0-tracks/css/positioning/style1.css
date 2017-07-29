@@ -1,0 +1,19 @@
+body{
+	margin-left: 250px;
+}
+
+#octopus {
+	display: block;
+	margin-top: 10px;
+	padding-top: 150px;
+	margin-left: 15px;
+}
+
+#hat {
+	margin-top: -380px;
+}
+	
+#glasses {
+	margin-left: 55px;
+	margin-top: 15px;
+}

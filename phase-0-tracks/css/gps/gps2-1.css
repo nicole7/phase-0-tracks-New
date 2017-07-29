@@ -1,0 +1,35 @@
+body{
+  background-color: grey;
+}
+header{
+  border: dotted 5px;
+  background-color: beige;
+ text-align: center;
+ font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.column-1{
+  border: solid 5px;
+  width: 40%;
+  background-color:teal;
+ float: left;
+ margin-top: 40px;
+ padding:10px;
+ font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.column-2{
+   border: solid 5px;
+  width: 40%;
+  background-color:teal;
+  float: right;
+   margin-top: 40px;
+  padding: 10px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+footer{
+  clear: both;
+  text-align: center;
+   font-family: "Comic Sans MS", cursive, sans-serif;
+}

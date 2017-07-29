@@ -1,0 +1,22 @@
+1.Classes are essentially blueprints from which individual objects can be created
+	- Classes are like a "species" and they include 		
+	  instructions for both:
+	      1. Attributes: which are characteristics
+	      2. Methods: Which is like behavior (actions for
+	      	 what the program should do)
+	- Typically classes are made up of instance variables 
+	   stored in an initialize method that hold information. They are what each member of the class is known as
+	- The instance methods are methods you can call on these
+	  instance variables
+
+2. Attributes are characteristics of a class, so these would essentially be your instance variables that store information or characteristics about a class (i.e name, address, color, etc)
+
+3. A real world example of an object might be "student" and this student's attributes may include name, address, major and living quarters.
+
+4. The initialize method runs when an instance of that class is initialized or created. Any time you call Classname.new, it will run that initialize method. The purpose is pass all the arguments that you passed to a new instance of the class on to the initialize method.
+
+5. Modules are a set of method and a way to compartmentalize a set of related methods
+
+6. You can use a method to compartmentalize methods. For example, Math is a module with many methods already built in. So instead of writing the code yourself, you can call a method within the Math module (i.e. Math.sqrt(4))
+
+Can also be used as a mixin to give classes more funtionality. So one module holds information that more than one other class will share. 

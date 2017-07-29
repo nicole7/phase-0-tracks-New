@@ -1,0 +1,29 @@
+Do the Thing - Try out - In elevator 
+	If floor you're on equals one of the buttons, dont press
+	G equals ground floor
+	Each numbered button equals each floor number
+	Push numbered button
+	If doors open, go forward and exit elevator
+	Otherwise, wait
+..........................
+
+Realse 1 -Make coffee
+	Open lid to coffee can
+	Take measuring spoon
+	Until 9 scoops of coffee have been dumped into the filter in the machine, keep scooping and dumping
+	Remove carafe from the burner
+	Move right until sink it reached
+	Turn sink nozzle
+	Place carafe under faucet
+	If 12 cups of water are measured, remove from faucet
+	Otherwise, wait
+	Turn nozzle off
+	Move left until coffee machine centered in front
+	Place carafe spout in side of machine
+	Until carafe is empty, keep pouring
+	Place carafe on burne
+	Flip switch up on coffee machine to start
+	End
+
+
+
