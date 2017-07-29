@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form</title>
+</head>
+<body>
+
+<form action="success.html" method="post">
+
+<h1>
+Welcome to the race application. Please fill out the following.
+</h1>
+
+<fieldset>
+
+ <div>
+      <label>Name:</label>
+      <input type="text" name="name">
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input type="email" name="email">
+    </div>
+
+ <div>
+      <label>Choose a date:</label>
+      <input type="date" name="date">
+    </div>
+
+ <div>
+      <label>Distance:</label>
+      <select name="dist">
+        <option value="5k">5 kilo</option>
+        <option value="10k">10 kilo</option>
+        <option value="15k">15 kilo</option>
+      </select>
+    </div>
+
+</fieldset>
+
+<fieldset>
+
+<p>
+Why do you want to compete? (at least 3000 words)
+</p>
+
+<textarea rows="4" cols="50">
+
+</textarea>
+
+<p>How is your health?</p>
+
+    <div>
+      <input type="checkbox" name="cb-agree" value="agree">
+      I have no prior health conditions.
+    </div>
+
+    <div>
+      <input type="checkbox" name="cb-agree" value="agree">
+      I have one prior health condition.
+    </div>
+
+    <div>
+      <input type="checkbox" name="cb-agree" value="agree">
+      I have several prior health conditions.
+    </div>
+
+</fieldset>
+
+  <button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>

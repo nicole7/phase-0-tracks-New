@@ -1,0 +1,20 @@
+name = "Nicole Gasperini"
+new_name = "gasperini nicole"
+	name.downcase = "nicole gasperini"
+	.split(' ') = ["nicole", "gasperini"]
+	.reverse = ["gasperini", "nicole"]
+	new_name.join(' ') = "gasperini nicole"
+
+
+index = 0
+vowels = "aeiou"
+consonants = "bcdfghjklmnpqrstvwxyz"
+
+while index < new_name.length (0) < (16)
+		if new_name[index] == " " 
+
+		elsif vowels.include?(new_name[index])
+
+		elsif consonants.include?(new_name[index])
+			next_cons = consonant.index(new_name[index]).next
+			new_name[index] = consonant[next_cons] (0) g (5) h

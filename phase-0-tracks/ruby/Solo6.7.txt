@@ -1,0 +1,71 @@
+#Create a method that take an argument of a certain word
+#Create another array with letters A - Z and have another program choose random letters to guess
+#Create a placeholder string that using "_" based on the length of the word
+#For each letter that is right, enter in that letter in the placeholder and print it out
+#If they guess wrong, give another try
+#Once the word is complete, congratulate them 
+
+
+class Hangman
+attr_accessor :placeholder, :word, :is_over, :guesses
+
+	def initialize(word)
+	  @placeholder = " "
+	  @word = word
+	  @alpha = "abcdefghijklmnopqrstuvwxyz"
+	  @is_over = false
+	  @guesses = []
+	end
+
+	def placeholder
+	  string_place = "_ "
+		hangman_length = word.length 
+		@placeholder = string_place * hangman_length
+		
+		@placeholder
+	end
+
+	def rand_letter
+		rand_letter = @alpha[rand(@alpha.size)]
+		
+		rand_letter
+  end
+
+	def test_word(item)
+	  @word.split
+		@placeholder.split(' ')
+      	if !@placeholder.include?("_")
+  		      @is_over = true
+  		  else 
+  		    false
+        end
+  end
+end
+
+p "Welcome to the hangman game"
+hangman = Hangman.new("peanut")
+rand_letter = hangman.rand_letter
+placeholder = hangman.placeholder
+p placeholder
+
+p "Let's see if there was a match: "
+
+while !hangman.is_over
+
+   p "Guessed letter: "
+   
+   rand_letter
+   
+      if hangman.word.include?(rand_letter)
+          p "It's a match!"
+      	  letter_index = hangman.word[rand_letter]
+		      placeholder[hangman.word.index(letter_index) + 1] = rand_letter
+		      
+		  else
+		      p "No match. Try again"
+		      p placeholder
+		     
+		  end
+
+
+end
