@@ -69,16 +69,31 @@ extinct_animals = {
 
 # 1. Iterate through extinct_animals hash using #each, printing each key/value pair
 # with a dash in between the key and value, and an asterisk between each pair.
-# ----
+extinct_animals.each {|animal, year| p "#{animal} - #{year}"}
+
+
 
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000, using #each.
-# ----
+
+p "Extinct before 2000:"
+extinct_animals.each do |animal, year|
+	if year < 2000
+		p "#{animal} - #{year}"
+	end
+end
+###p extinct_animals
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
 # using #each, so they accurately reflect what year the animal went extinct.
-# ----
+
+#extinct_animals.each {|animal, year| extinct_animals[animal] = year + 3}
+extinct_animals.each do |animal, year|
+	puts "#{animal} #{extinct_animals[animal] = year - 3}"
+
+end
+
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Build a method  using #each that checks if an animal is in the hash and returns true/false.
@@ -88,10 +103,30 @@ extinct_animals = {
 # "Dodo"
 # "Saiga Antelope"
 # Driver code example: is_extinct?(extinct_animals, "Andean Cat")
-# ----
+def check_extinction(animal_array, new_animal)
+	
+	animal_array.each do |animal, year|
+		if animal == new_animal
+			puts "False, #{new_animal} is not extinct"
+		#else
+			#break
+		end
+	 	
+	 end
+	 	puts "True, #{new_animal} is extinct" 
+end
+
+check_extinction(extinct_animals, "Andean Cat")
+check_extinction(extinct_animals, "Dodo")
+check_extinction(extinct_animals, "Saiga Antelope")
 
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
 # Find a Ruby Hash built-in method that helps you accomplish this or build
 # your own method using #each
-# ----
+extinct_animals.each do |animal, year|
+	if animal == "Passenger Pigeon"
+		puts "#{animal} - #{extinct_animals.delete(animal)}"
+	end
+
+end
