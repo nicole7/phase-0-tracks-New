@@ -3,17 +3,25 @@
 #Don't use built-in methods like .index - can use .length and .each
 
 def search_array(arr, num)
-	length = arr.length
+	#Declare index variable to store each iteration (will act as index)
 	index = 0
+	#Make do loop that iterates through array
 	arr.each do |number| 
+		#As it goes through each number, if the number is equal to the 
+		#number in the argument we are looking for
 		if number == num
-			#p index
+			#Then break the loop
 			break
+		#End if loop
 		end
+		#Index will stop at the count where it left off if it breaks at the right number
 		index += 1
+	#End do loop
 	end
-
+	#Print out the number we are looking for and the index it stopped at when it 
+	#found it
 	p "#{num} is at index of #{index}"
+#End method
 end
 
 #array
@@ -65,4 +73,48 @@ end
 p create_fib(11)
 
 p "..............................."
+
+#Create method for a bubble sort that takes in an array argument
+#Create a while loop?
+#Compare each value of the aray with its neighbor to the right
+#If its nieghbor is a bigger value, switch their indicies and compare the neighbor with the next number
+#If their neighbor is a smaller value, dont switch, but compare the neightbor with the next number
+#Keep doing this until all numbers are sorted
+
+def bubble_sort(arr)
+	#Must make loop inside of loop
+	loop do
+	#sorted will be the marker of whether something is sorted, true or false
+	sorted = false
+	#This will iterate through the while loop
+	index = 0
+		#while loop will be used to switch the numbers needed or it will break out and 
+		#allow for the next pair to come in
+		#Use length - 1 so it doesnt sort the last value with something
+		#thats actually outside the array
+		#while index > arr.length - 1
+		(arr.length - 1).times do |index|
+			#if statement that compares if the first value is bigger than the next
+			if arr[index] > arr[index + 1]
+			#If it is, switch their index position
+			arr[index], arr[index + 1] = arr[index + 1], arr[index]
+			#Change sorted to true
+			sorted = true
+			#End if statement
+		    end 
+		#Incriment loop
+		#index += 1
+	#End while loop/second do loop
+	    end
+		#Break while loop if everything is sorted and coming up true
+		break if not sorted
+	#End do loop
+	end
+	#Return the sorted array
+	arr
+#End method 
+end
+
+arr_to_sort = [10, 3, 64, 2, 24, 19]
+p bubble_sort(arr_to_sort)
 
