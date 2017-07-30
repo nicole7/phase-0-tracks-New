@@ -31,19 +31,38 @@ p ".............................."
 #Method will return an array
 
 def create_fib(num)
+	#Start with the first two numbers 0 and 1 and store in separate variables
 	num1 = 0
 	num2 = 1
+	#Create an empty hash to later take in fibonacci numbers 
 	fib_array = []
-	
+
+	#Use a counter to iterate through however many times depending on the argument
 	index = 0
-	while index <= num
+	#Use a while loop to iterate as long as it iterates "num" times
+	while index < num
+		#Use temp varibale to pass the variable between the two
+		#Have it equal 0 at first - it will print this first
 		temp = num1
+		#Reassign num1 to 1 (num2's value), when it comes back to temp it 
+		#will print this twice after
 		num1 = num2
+		#num2 is going to be adding the previous two variable values
 		num2 = temp + num1
-		fib_array << num1
+		#Temp is the variable we want to use in order to start with 0 instead of 1
+		#Store each iteration value in the array
+		fib_array << temp
+		#Increase iteration each time
 		index += 1
+	#End while loop	
 	end
+	#Return array with fibonacci numbers
 	fib_array
+#End method
 end
 
+#Call and print return array for 11 iterations
 p create_fib(11)
+
+p "..............................."
+
