@@ -1,7 +1,11 @@
 class Puppy
 
+	def initialize
+		p "Initializing new puppy instance..."
+	end
+
 	def fetch_ball(toy)
-		puts "I brought back the #{toy}"
+		p "I brought back the #{toy}"
 		toy
 	end
 
@@ -31,3 +35,36 @@ puppy.speak(3)
 puppy.roll_over
 puppy.dog_years(5)
 p puppy.shake_paw("Give hand")
+
+puts "............................."
+
+class Student
+	def initialize
+	end
+
+	def study(material)
+		"*studying #{material}*"
+	end
+
+	def papers(num)
+		"#{num} papers required for this class"
+	end
+end
+
+student = Student.new
+student.study("literature")
+student.papers(5)
+
+lit_class = []
+50.times do
+	lit_class.push(student = Student.new)
+end
+
+p lit_class.length
+
+
+
+
+
+
+
