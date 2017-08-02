@@ -6,7 +6,7 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # 1. Iterate through the zombie_apocalypse_supplies array using #each,
 # printing each item in the array separated by an asterisk
 
-zombie_apocalypse_supplies.each {|supplies| p "#{supplies}*" }
+zombie_apocalypse_supplies.each {|supplies| print "#{supplies}*" }
 	#p "#{supplies} *"
 	#How to get it all on one line?
 	
@@ -18,16 +18,22 @@ zombie_apocalypse_supplies.each {|supplies| p "#{supplies}*" }
 # zombie_apocalypse_supplies using #each.
 # For instance: are boots in your list of supplies?
 def find_item(array_list, item)
-	p "Does out pack include #{item}?"
-		array_list.each do |supplies|
-			if supplies == item
-				puts "It includes #{item}"
-			end	
-		end
-		#Don't put this inside the do loop or it will print EVERYTIME its false
-		if !array_list.include?(item)
-			puts "It does not include #{item}"
-		end
+    p "Does our pack include #{item}?"
+    check = false
+    array_list.each do |supplies|
+        if supplies == item
+            puts "Does include #{item}"
+            check = true
+        end 
+
+    end
+    if false
+        puts "Does not include #{item}"
+    end
+    #Don't put this inside the do loop or it will print EVERYTIME its false
+    #if !array_list.include?(item)
+       # puts "It does not include #{item}"
+    #end
 end
 
 find_item(zombie_apocalypse_supplies, "rations")
@@ -69,7 +75,7 @@ extinct_animals = {
 
 # 1. Iterate through extinct_animals hash using #each, printing each key/value pair
 # with a dash in between the key and value, and an asterisk between each pair.
-extinct_animals.each {|animal, year| p "#{animal} - #{year}"}
+extinct_animals.each {|animal, year| p "#{animal} * #{year}"}
 
 
 
@@ -78,11 +84,11 @@ extinct_animals.each {|animal, year| p "#{animal} - #{year}"}
 
 p "Extinct before 2000:"
 extinct_animals.each do |animal, year|
-	if year < 2000
-		p "#{animal} - #{year}"
-	end
+    if year < 2000
+        puts "#{animal} - #{year}"
+    end
 end
-###p extinct_animals
+
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
@@ -103,22 +109,25 @@ end
 # "Dodo"
 # "Saiga Antelope"
 # Driver code example: is_extinct?(extinct_animals, "Andean Cat")
-def check_extinction(animal_array, new_animal)
-	
-	animal_array.each do |animal, year|
-		if animal == new_animal
-			puts "False, #{new_animal} is not extinct"
-		#else
-			#break
-		end
-	 	
-	 end
-	 	puts "True, #{new_animal} is extinct" 
+ def check_extinction(animal_array, new_animal)
+    not_extinct = true
+    animal_array.each do |animal, year| 
+        if animal == new_animal
+            puts "False, #{new_animal} is not extinct"
+            not_extinct = false
+        end
+    end
+        if not_extinct 
+         puts "True, #{new_animal} is extinct" 
+     	end
+     
 end
 
 check_extinction(extinct_animals, "Andean Cat")
 check_extinction(extinct_animals, "Dodo")
 check_extinction(extinct_animals, "Saiga Antelope")
+
+
 
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
