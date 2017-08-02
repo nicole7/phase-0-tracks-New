@@ -16,11 +16,26 @@ class Santa
 	def eat_milk_and_cookies(cookie)
 		p "That was a good #{cookie}!"
 	end
+
+	def celebrate_birthday
+		new_age = @age + 1
+		puts new_age
+	end
+
+	def get_mad_at(reindeer_name)
+		p reindeer_name
+		@reindeer_ranking.pop
+		@reindeer_ranking.push(reindeer_name)
+		p @reindeer_ranking
+	end
 end
 
 santa = Santa.new("female","white")
 santa.speak
 santa.eat_milk_and_cookies("Chocolate chip")
+santa.celebrate_birthday
+santa.get_mad_at("Dancer")
+
 
 years_attended_and_age = []
 years_attended = ["3","2","1","5", "4", "8", "1"]
