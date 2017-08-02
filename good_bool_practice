@@ -1,0 +1,23 @@
+def conditionals(value)
+    puts "#{value.nil? ? 'nil' : value} == false?  => #{value == false}"
+end
+
+def ruby_conditionals(value)
+    print "!#{value.nil? ? 'nil' : value}?  => "
+    
+    if !value
+        puts true
+    else
+        puts false
+    end
+end
+
+conditionals(true)
+conditionals(false)
+conditionals(nil)
+puts
+ruby_conditionals(true)
+ruby_conditionals(false)
+ruby_conditionals(nil)
+
+condition ? value1 : value2
