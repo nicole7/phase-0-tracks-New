@@ -18,8 +18,9 @@ class Santa
 	end
 
 	def celebrate_birthday
-		new_age = @age + 1
-		puts new_age
+		@age = @age + 1
+		puts @age
+		
 	end
 
 	def get_mad_at(reindeer_name)
@@ -28,6 +29,18 @@ class Santa
 		@reindeer_ranking.push(reindeer_name)
 		p @reindeer_ranking
 	end
+
+	def gender=(new_gender)
+		@gender = new_gender
+	end
+
+	def age
+		@age
+	end
+
+	def ethnicity
+		@ethnicity
+	end
 end
 
 santa = Santa.new("female","white")
@@ -35,6 +48,9 @@ santa.speak
 santa.eat_milk_and_cookies("Chocolate chip")
 santa.celebrate_birthday
 santa.get_mad_at("Dancer")
+p santa.gender = "male"
+p santa.age
+p santa.ethnicity
 
 
 years_attended_and_age = []
