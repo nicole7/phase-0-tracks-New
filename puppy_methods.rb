@@ -46,21 +46,27 @@ class Student
 		"*studying #{material}*"
 	end
 
-	def papers(num)
-		"#{num} papers required for this class"
+	def write_papers(num)
+		"writing #{num} papers for this class"
 	end
 end
 
 student = Student.new
 student.study("literature")
-student.papers(5)
+student.write_papers(5)
 
 lit_class = []
-50.times do
+50.times do 
 	lit_class.push(student = Student.new)
 end
 
-p lit_class.length
+lit_class.each do |student|
+	p "#{student} is #{student.study("literature")}"
+	p "and #{student} is #{student.write_papers(5)}"
+end
+
+
+
 
 
 
