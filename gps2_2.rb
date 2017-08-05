@@ -8,14 +8,23 @@
   # Within the same loop add the qty to each value pair
   # print the list to the console [can you use one of your other methods here?]
 # output:  hash
-def create_list(items)
+def create_list(items, qty)
 	items = items.split(' ')
-	hash_list = {}
+	new_hash_list = {}
+	
+		items.each_with_index do |item, idx|
+			new_hash_list[item] = qty[idx]
+			new_hash_list
+		end
 
-	items.each do |item|
-		hash_list[item] = 10
-	end
-	hash_list
+	p new_hash_list
+	#items = items.split(' ')
+	#hash_list = {}
+
+	#items.each do |item|
+		#hash_list[item] = qty
+	#end
+	#hash_list
 end
 
 
@@ -40,7 +49,7 @@ end
 # input: list, item name, and req qty
 # steps: Take one of the item's qty and have it equal a diff qty
 # output: hash (with the new item's qty)
-def update_list(list, item_name, req_qty = 5)
+def update_list(list, item_name, req_qty)
 	list[item_name] = req_qty
 	list
 end
@@ -51,7 +60,7 @@ end
 #        Change each key value pair into a string
 #        Print the strings every iteration
 # output: (nothing)
-def pretty_list(list, item_name, opt_qty)
+def pretty_list(list)
 	list.each do |key, value|
 		p "#{key} #{value}"
 	end
@@ -71,17 +80,22 @@ def create_new_list(new_string,new_qty_list)
 		
 end
 
-string_items = "carrots pizzas bananas apples cereal"
-hash_list = create_list(string_items)
+string_items = "carrots pizzas apples cereal"
+default_quantity = [10, 10, 10, 10, 10]
+hash_list = create_list(string_items, default_quantity)
 add_list(hash_list, "bread", 5)
-remove_list(hash_list, "bananas")
-update_list(hash_list, "apples")
-pretty_list(hash_list, string_items, 10)
+remove_list(hash_list, "pizzas")
+update_list(hash_list, "apples", 5)
+pretty_list(hash_list)
 
-new_string_items = "lemonade tomatoes onionx ice_cream"
+new_string_items = "lemonade tomatoes onions ice_cream"
 new_qty_list = [2,3,1,4]
-new_hash_list = create_new_list(new_string_items, new_qty_list)
+
+new_hash_list = create_list(new_string_items, new_qty_list)
 new_hash_list
+remove_list(new_hash_list, "lemonade")
+update_list(new_hash_list, "ice_cream", 1)
+pretty_list(new_hash_list)
 
 #Refelct:
 #From pseudocode, I learned that it is much easier to write out essentially directions of what you need to do 
