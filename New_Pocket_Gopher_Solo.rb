@@ -117,6 +117,33 @@
 #
 #Thank you for watching! Good night!
 
+
+
+#...................................................................
+#Release 8
+#
+#Uh oh, our newsroom is very successful! We're getting so many stories 
+#that we'll need to figure out which reporters should cover each story. 
+#To simplify this, we'll just use a skill name to stand in for a "story".
+#For example, we'll need to figure out which of our reporters have the 
+#skill "politics".
+#
+#Create an instance method that takes a skill name, and 
+#find_reporters_with_skill for that skill. Remember, multiple reporters 
+#can have the same skills, so your method should return a list of 
+#reporters.
+
+
+
+#...................................................................
+#Bonus release!
+#
+#Your reporters want to branch out and develop new skills and specialties.
+#
+#Create an instance method that takes a reporter's name and the new skill
+#they've learned, and add it to that reporter's skill in your reporters 
+#data structure.
+
 class Newsroom
 attr_reader :name
 attr_accessor :budget
@@ -152,8 +179,21 @@ attr_accessor :budget
 	end
 
 	def has_budget?(new_name)
-		#Make sure you change to new_name so you have a clearer understanding of whats being passed there
+		#Make sure you change to new_name so you have a clearer understanding of whats being passed there***
 		(budget - (total_salaries + salary_for(new_name)) > 0)
+	end
+
+	def find_reporters_with_skill(find_skill)
+		#Store in another hash and print - no if statement necessary***
+		skilled_reporters = @reporters.each do |name, skill|
+			skill.include?(find_skill)
+		end
+		skilled_reporters
+	end
+
+	def new_reporter_skill(name, new_skill)
+		@reporters[name].push(new_skill)
+		@reporters
 	end
 
 	def friendly_print
@@ -175,31 +215,5 @@ newsroom = Newsroom.new("CNN", 300_000)
 newsroom.add_reporter("Anderson Cooper", ["politics", "economics", "grey hair"])
 newsroom.add_reporter("Wolf Blitzer", ["politics", "moustache", "yelling"])
 newsroom.add_reporter("Jim Acosta", ["politics", "smiling"])
-
-newsroom.friendly_print
-
-#...................................................................
-#Release 8
-#
-#Uh oh, our newsroom is very successful! We're getting so many stories 
-#that we'll need to figure out which reporters should cover each story. 
-#To simplify this, we'll just use a skill name to stand in for a "story".
-#For example, we'll need to figure out which of our reporters have the 
-#skill "politics".
-#
-#Create an instance method that takes a skill name, and 
-#find_reporters_with_skill for that skill. Remember, multiple reporters 
-#can have the same skills, so your method should return a list of 
-#reporters.
-
-
-#...................................................................
-#Bonus release!
-#
-#Your reporters want to branch out and develop new skills and specialties.
-#
-#Create an instance method that takes a reporter's name and the new skill
-#they've learned, and add it to that reporter's skill in your reporters 
-#data structure.
 
 
