@@ -82,46 +82,7 @@
 #figure out if you have budget to hire "Rachel Maddow". Hint: With 
 #"Anderson Cooper" and "Wolf Blitzer" already on your team, you don't.
 
-class Newsroom
-attr_reader :name
-attr_accessor :budget
 
-	def initialize(name, budget)
-		@name = name
-		@budget = budget
-		@reporters = {}
-	end
-
-	def add_reporter(name, skills)
-		if !@reporters.has_key?(name)
-			@reporters[name] = skills
-			 #puts "#{name} added"
-		else
-			puts "We can't hire them!"
-		end
-	end
-
-	def salary_for(name)
-		name.length * 10_000
-	end
-
-	def total_salaries
-		total_salary = 0
-		@reporters.each do |name, skills|
-			total_salary += salary_for(name) 
-		end
-		total_salary
-	end
-
-	def has_budget?(name)
-		(budget - (total_salaries + salary_for(name)) > 0)
-	end
-end
-
-newsroom = Newsroom.new("CNN", 300_000)
-newsroom.add_reporter("Anderson Cooper", ["politics", "economics", "grey hair"])
-newsroom.add_reporter("Wolf Blitzer", ["politics", "moustache", "yelling"])
-newsroom.add_reporter("Jim Acosta", ["politics", "smiling"])
 
 #......................................................................
 #Release 6
@@ -156,6 +117,66 @@ newsroom.add_reporter("Jim Acosta", ["politics", "smiling"])
 #
 #Thank you for watching! Good night!
 
+class Newsroom
+attr_reader :name
+attr_accessor :budget
+
+	def initialize(name, budget)
+		@name = name
+		@budget = budget
+		@reporters = {}
+	end
+
+	def add_reporter(name, skills)
+		if has_budget?(name)
+			if !@reporters.has_key?(name)
+				@reporters[name] = skills
+			else
+				puts "We can't hire them!"
+			end
+		else
+			puts "We can't afford #{name}"
+		end
+	end
+
+	def salary_for(name)
+		name.length * 10_000
+	end
+
+	def total_salaries
+		total_salary = 0
+		@reporters.each do |name, skills|
+			total_salary += salary_for(name) 
+		end
+		total_salary
+	end
+
+	def has_budget?(new_name)
+		#Make sure you change to new_name so you have a clearer understanding of whats being passed there
+		(budget - (total_salaries + salary_for(new_name)) > 0)
+	end
+
+	def friendly_print
+		puts "Welcome to the #{@name} Newsroom!"
+		puts
+		puts "Your reporting team is:"
+
+		@reporters.each do |name, skills|
+			#Think of how you would turn an array in a string!
+			puts "#{name} - specializing in #{skills.join(', ')}"
+
+		end
+		puts
+		puts "Thank you for watching! Good night!"
+	end
+end
+
+newsroom = Newsroom.new("CNN", 300_000)
+newsroom.add_reporter("Anderson Cooper", ["politics", "economics", "grey hair"])
+newsroom.add_reporter("Wolf Blitzer", ["politics", "moustache", "yelling"])
+newsroom.add_reporter("Jim Acosta", ["politics", "smiling"])
+
+newsroom.friendly_print
 
 #...................................................................
 #Release 8
