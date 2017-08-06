@@ -65,6 +65,23 @@
 #Test your method by calculating your current total salaries - hint: 
 #"Anderson Cooper", "Wolf Blitzer" and "Jim Acosta" together make $370,000.
 
+
+
+#........................................................................
+#Release 5
+#
+#Now that we've done these calculation methods, it's time to bring it all 
+#together into a method that can tell us if we can afford to hire a new 
+#reporter.
+#
+#Create an instance method that takes a reporter's name, and returns true 
+#if the newsroom has_budget? left to hire them, and false if the budget is 
+#less than the total existing salaries plus the new reporter's salary.
+#
+#Test your code by adding some driver code to take some reporters and 
+#figure out if you have budget to hire "Rachel Maddow". Hint: With 
+#"Anderson Cooper" and "Wolf Blitzer" already on your team, you don't.
+
 class Newsroom
 attr_reader :name
 attr_accessor :budget
@@ -95,29 +112,16 @@ attr_accessor :budget
 		end
 		total_salary
 	end
+
+	def has_budget?(name)
+		(budget - (total_salaries + salary_for(name)) > 0)
+	end
 end
 
 newsroom = Newsroom.new("CNN", 300_000)
-newsroom.add_reporter("Anderson       Cooper", ["politics", "economics", "grey hair"])
+newsroom.add_reporter("Anderson Cooper", ["politics", "economics", "grey hair"])
 newsroom.add_reporter("Wolf Blitzer", ["politics", "moustache", "yelling"])
 newsroom.add_reporter("Jim Acosta", ["politics", "smiling"])
-
-puts newsroom.total_salaries
-#........................................................................
-#Release 5
-#
-#Now that we've done these calculation methods, it's time to bring it all 
-#together into a method that can tell us if we can afford to hire a new 
-#reporter.
-#
-#Create an instance method that takes a reporter's name, and returns true 
-#if the newsroom has_budget? left to hire them, and false if the budget is 
-#less than the total existing salaries plus the new reporter's salary.
-#
-#Test your code by adding some driver code to take some reporters and 
-#figure out if you have budget to hire "Rachel Maddow". Hint: With 
-#"Anderson Cooper" and "Wolf Blitzer" already on your team, you don't.
-
 
 #......................................................................
 #Release 6
