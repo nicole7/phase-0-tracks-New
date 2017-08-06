@@ -211,9 +211,12 @@ attr_accessor :budget
 	end
 end
 
-newsroom = Newsroom.new("CNN", 300_000)
+newsroom = Newsroom.new("CNN", 400_000)
 newsroom.add_reporter("Anderson Cooper", ["politics", "economics", "grey hair"])
 newsroom.add_reporter("Wolf Blitzer", ["politics", "moustache", "yelling"])
 newsroom.add_reporter("Jim Acosta", ["politics", "smiling"])
+
+newsroom.new_reporter_skill("Anderson Cooper","Interviewing")
+
 
 
