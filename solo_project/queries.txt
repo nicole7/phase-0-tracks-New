@@ -1,0 +1,89 @@
+Schema
+
+foods                             type
+........                          .......   
+id (integer primary key)          id (integer primary key)
+name (varcahr 255)                name (varcahr 255)
+quantity (int)
+color VARCHAR(255)
+type_id (int)
+
+.................................................................
+
+Release 2: (Also Attached as Sreenshots)
+
+1. Display the information in one table (either table is fine).
+	sqLite> SELECT * FROM foods
+		...> ;
+ 	1|Green Pepper|2|Green|Vegetable|
+	2|Apple|3|Red|Fruit|
+	3|Eggplant|1|Purple|Vegetable|
+	4|Carrot|2|Orange|Vegetable|
+	5|Banana|5|Yellow|Fruit|
+	sqLite>
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+	sqLite> UPDATE foods SET quantity=3 WHERE name="Carrot";
+	sqLite> SELECT * FROM foods;
+	1|Green Pepper|2|Green|Vegetable|
+	2|Apple|3|Red|Fruit|
+	3|Eggplant|1|Purple|Vegetable|
+	4|Carrot|3|Orange|Vegetable|
+	5|Banana|5|Yellow|Fruit|
+	sqLite>
+	
+3. Display the information in both tables using one query.
+	SELECT * FROM foods, type WHERE foods.type_id = type.id;
+	1|Banana|5|Yellow|2|2|Fruit
+	2|Green Pepper|2|Green|1|1|Vegetable
+	3|Apple|3|Red|2|2|Fruit
+	4|Carrot|3|Orange|1|1|Vegetable
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+	SELECT foods.name, type.name FROM foods JOIN type ON foods.type_id = type.id
+   ...> ;
+	Banana|Fruit
+	Green Pepper|Vegetable
+	Apple|Fruit
+	Carrot|Vegetable
+
+5. Delete an item that meets some condition (you can choose a    condition that makes sense).
+	sqlite> DELETE FROM foods WHERE color="Yellow";
+	sqlite> SELECT foods.name, type.name FROM foods JOIN type ON foods.type_id = type.id
+   ...> ;
+	Green Pepper|Vegetable
+	Apple|Fruit
+	Carrot|Vegetable
+.............................................................
+
+Release 3: 
+
+CROSS JOIN - Matches every row of the first table with every row of the second table.
+
+	sqlite> SELECT type_id, foods.name FROM type CROSS JOIN foods;
+	1|Green Pepper
+	2|Apple
+	1|Carrot
+	1|Green Pepper
+	2|Apple
+	1|Carrot	
+
+INNER JOIN - creates a new result table by combining column values of two tables based on the join preicate.
+
+	sqlite> SELECT type_id, foods.name, quantity FROM type INNER JOIN foods ON foods.type_id = type.id;
+	1|Green Pepper|2
+	2|Apple|3
+	1|Carrot|3
+
+OUTER JOIN - extension of INNER JOIN (technically LEFT, RIGHT, and FULL ut sqLite only supports LEFT OUTER JOIN). An OUTER JOIN will take any unjoined rows from one or both tables, pad them out with NULLs, and append them to the resulting table.
+
+	sqlite> SELECT type_id, foods.name, quantity FROM type LEFT OUTER JOIN foods ON foods.type_id = type.id;
+	1|Carrot|3
+	1|Green Pepper|2
+	2|Apple|3
+
+	
+
+
+
+
