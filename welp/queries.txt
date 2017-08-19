@@ -1,0 +1,35 @@
+2. You've joined two tables before. How do you join three?
+
+sqlite> SELECT users.id, users.firstname, users.lastname, businesses.id, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN businesses ON reviews.business_id = businesses.id JOIN users ON reviews.user_id = users.id;
+1|Bradford|Pitt|1|Grundy Hollow Wedding Chapel|3|Great place!
+2|Mandy|Kaling|2|Amir's Towing|1|Wasn't pleased...
+3|Angela|Jolia|3|The Beagle Nightclub|5|Top notch!!
+
+
+
+3. There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.
+
+sqlite> SELECT users.firstname, users.lastname, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN businesses ON reviews.business_id = businesses.id JOIN users ON reviews.user_id = users.id;
+Bradford|Pitt|Grundy Hollow Wedding Chapel|3|Great place!
+Mandy|Kaling|Amir's Towing|1|Wasn't pleased...
+Angela|Jolia|The Beagle Nightclub|5|Top notch!!
+
+
+
+4. How do you view the data of all three tables for just one particular business? 
+
+sqlite> SELECT users.id, users.firstname, users.lastname, businesses.id, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN businesses ON reviews.business_id = businesses.id JOIN users ON reviews.user_id = users.id WHERE businesses.name = "Amir's Towing"
+   ...> ;
+2|Mandy|Kaling|2|Amir's Towing|1|Wasn't pleased...
+
+...............................................................
+Come up with an example of a real-world many-to-many relationship. Using whatever medium you prefer (online diagramming tool, pen and paper, etc.), draw a schema showing how you would set up this many-to-many relationship in a database.
+
+Students                        Major                           University
+id (integer primary key)__      id (integer primary key)   _____id (integer primary key)
+first_name(varchar 255)   \		major(varchar 255)        /     name (varchar 255)
+last_name(varchar 255)     \	gpa (int)                /
+						   	\___student_id (int)        /
+						   	    university_id (int)____/
+
+
