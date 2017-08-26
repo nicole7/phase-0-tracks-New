@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<script>
+		$(document).ready(function(){
+			$("#one").click(function(){
+				$(this).hide();
+			});
+		});
+		$(document).ready(function(){
+			$("#two").hover(function(){
+				$(this).hide();
+			});
+		});
+
+	</script>
+	<div id='one'>
+	<p>Click to hide</p>
+	</div>
+
+	<div id='two'>
+	<p>Hover to hide</p>
+	</div>
+</body>
+</html>
