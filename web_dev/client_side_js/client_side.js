@@ -1,11 +1,13 @@
-var el = document.createElement('intro');
-el.innerHTML = '<p>My dog, Bandit, is scared of everything</p>';
+var el = document.createElement('em');
+var bold_el = el.bold();
 
-el.style.color = 'green';
+bold_el.style.color = 'green';
 
 
-function displayImage() {
-	var bandit = document.getElementBy("viewBandit");
-	bandit.hidden = false
+function displayImage1() {
+	document.getElementById('viewBandit1').addEventListener("click", src="bandit.png");
 }
-var bandit = document.getElementById("viewBandit").addEventListener("click", displayImage);
+
+function displayImage2() {
+	document.getElementById('viewBandit2').addEventListener("click", src="banditSleeps.png");
+}
