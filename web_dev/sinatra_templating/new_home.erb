@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Campus Management System</h1>
+  <p>Welcome to the campus management system.</p>
+  <p>Click <a href="students/new_campus">here</a> to create a new campus and student name.</p>
+  <ul>
+    <% @students.each do |student| %>
+      <li><%= student['campus'] %>, <%= student['name'] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
