@@ -19,9 +19,12 @@ banditSleep.style.opacity = -1;
 
 function fadeImage() {
 	document.getElementById('button2').addEventListener("click", image2Sleep);
-	
 	};
-	
+
+image1Hide();
+hideImage();
+image2Sleep();
+fadeImage();
 
 	
 
